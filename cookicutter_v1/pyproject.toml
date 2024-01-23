@@ -1,0 +1,60 @@
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pkg_name"
+authors = [
+    {name="Hafez B", email="hafezbahrami@XXX.com"},
+]
+maintainers = [
+    {name="Hafez B", email="hafezbahrami@XXX.com"},
+]
+description="Build a simple package to do simple calculator operations!"
+requires-python = ">=3.6"
+classifiers=[
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+]
+dependencies = [
+    "numpy",
+]
+dynamic = ["version", "readme"]
+
+[project.optional-dependencies]
+TORCH = ["torch",]
+
+[project.urls]
+Repository = "https://git-hub/XXX"
+
+[tool.setuptools]
+package-data = {"pkg_name_deployment_endpoints" = ["lib/*.dll"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pkg_name.__version__"}
+readme = {file = ["README.md"], content-type = "text/markdown"}
+
+[tool.black]
+line-length = 120
+target_version = ["py36", "py37", "py38", "py39", "py310"]
+
+[tool.pylint]
+disable = ["R0903"]
+
+[tool.mypy]
+namespace_packages = true
+
+ignore_missing_imports = true

@@ -1,0 +1,19 @@
+[[source]]
+name = "pkg_name"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+numpy = "*"
+
+[dev-packages]
+pkg_name = {editable = true, path = "."}
+Cython = "*"
+build = "*"
+invoke = "*"
+pytest = "*"
+tomli = "*"
+black = "*"
+pyflakes = "*"
+pylint = "*"
+mypy = "*"

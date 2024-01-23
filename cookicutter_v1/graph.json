@@ -1,0 +1,40 @@
+black==23.12.1
+├── click [required: >=8.0.0, installed: 8.1.7]
+├── mypy-extensions [required: >=0.4.3, installed: 1.0.0]
+├── packaging [required: >=22.0, installed: 23.2]
+├── pathspec [required: >=0.9.0, installed: 0.12.1]
+├── platformdirs [required: >=2, installed: 4.1.0]
+├── tomli [required: >=1.1.0, installed: 2.0.1]
+└── typing-extensions [required: >=4.0.1, installed: 4.9.0]
+build==1.0.3
+├── importlib-metadata [required: >=4.6, installed: 7.0.1]
+│   └── zipp [required: >=0.5, installed: 3.17.0]
+├── packaging [required: >=19.0, installed: 23.2]
+├── pyproject-hooks [required: Any, installed: 1.0.0]
+│   └── tomli [required: >=1.1.0, installed: 2.0.1]
+└── tomli [required: >=1.1.0, installed: 2.0.1]
+Cython==3.0.8
+invoke==2.2.0
+mypy==1.8.0
+├── mypy-extensions [required: >=1.0.0, installed: 1.0.0]
+├── tomli [required: >=1.1.0, installed: 2.0.1]
+└── typing-extensions [required: >=4.1.0, installed: 4.9.0]
+pkg-name==0.0.0rc0
+└── numpy [required: Any, installed: 1.24.4]
+pyflakes==3.2.0
+pylint==3.0.3
+├── astroid [required: >=3.0.1,<=3.1.0-dev0, installed: 3.0.2]
+│   └── typing-extensions [required: >=4.0.0, installed: 4.9.0]
+├── dill [required: >=0.2, installed: 0.3.7]
+├── isort [required: >=4.2.5,<6,!=5.13.0, installed: 5.13.2]
+├── mccabe [required: >=0.6,<0.8, installed: 0.7.0]
+├── platformdirs [required: >=2.2.0, installed: 4.1.0]
+├── tomli [required: >=1.1.0, installed: 2.0.1]
+├── tomlkit [required: >=0.10.1, installed: 0.12.3]
+└── typing-extensions [required: >=3.10.0, installed: 4.9.0]
+pytest==7.4.4
+├── exceptiongroup [required: >=1.0.0rc8, installed: 1.2.0]
+├── iniconfig [required: Any, installed: 2.0.0]
+├── packaging [required: Any, installed: 23.2]
+├── pluggy [required: >=0.12,<2.0, installed: 1.3.0]
+└── tomli [required: >=1.0.0, installed: 2.0.1]
