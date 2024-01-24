@@ -1,8 +1,11 @@
-# Aspen Algebraic Modeling
+# Build Sysytem Table
+We will be using pyproject.toml to specify the build system in a table formatted in a *.toml file. The build-front-end (e.g. build or pip) tuses build-backend (such as setuptools, setuptools-scm, wheel, ...) to build the package.
+
 ![pipeline](https://google.com)
 ![coverage](https://google.com)
 
-Build a simple calculator models that are deployable in XXX simulators.
+
+
 
 ## Quick Start
 
@@ -21,6 +24,13 @@ Build a simple calculator models that are deployable in XXX simulators.
 - [ ] 
 
 ## Basics of building a package
+Python job requiring a build should start with the absolute minimum requirements:
+- pip
+- wheel
+- setuptools (build backend)
+- build (build front end)
+- invoke (tasks.py)
+
 ### 1 create setup.py, task.py, and pyproject.toml
 All stuff that we used to put in the setup.py (through the setup() call), which required setup.cfg, now are dumped simply into
 the pyproject.toml file. It is easier, cleaner, and less confusing.
@@ -46,3 +56,8 @@ There are a couple of points in the screen-shot below for what we got from ```pi
 - (IV) Also, note that a lot more than what we specified in our Pipfile will be installed in our env, due to dependency packages.
 
 ![pipenv_lock](./pics/pipenvgraph.png)
+
+## References
+- pythons docs on pyproject.toml https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+- setuptools: https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+- and as an example here is blacks config docs https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
