@@ -41,7 +41,6 @@ dynamic = ["version", "readme"]
 
 [project.optional-dependencies]
 TORCH = ["torch",]
-DEV = ["Cython", "build", "invoke", "pytest", "tomli", "black", "pyflakes", "pylint", "mypy"]
 
 [project.urls]
 Repository = "https://git-hub/XXX"
