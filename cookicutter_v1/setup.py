@@ -20,7 +20,11 @@ setup(
 )
 
 
-# --------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------
+# For cleaning (after-build-mess) purpose
+# Many files and directories will get build (some of them have very userful info)
+# But we want to clean them. For the Debug purpsose we might want to keep these files
+# ------------------------------------------------------------------------------------
 
 def on_rm_error(func, path, exc_info):
     os.chmod(path, stat.S_IWRITE)

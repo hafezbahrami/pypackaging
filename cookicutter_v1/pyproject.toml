@@ -4,7 +4,7 @@ requires = ["setuptools", "wheel", "Cython", "setuptools-scm",]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pkg_name"
+name = "cookiecutter_v1"
 authors = [
     {name="Hafez B", email="hafezbahrami@XXX.com"},
 ]
@@ -44,6 +44,9 @@ TORCH = ["torch",]
 
 [project.urls]
 Repository = "https://git-hub/XXX"
+
+[project.scripts]
+spam_cli = "pkg_name.calculate:Calculator"
 
 [tool.setuptools]
 package-data = {"pkg_name_deployment_endpoints" = ["lib/*.dll"]}

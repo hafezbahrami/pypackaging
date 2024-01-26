@@ -1,6 +1,6 @@
 
 
-class Claculator:
+class Calculator:
     """A simple calculator"""
     @staticmethod
     def add_two_numbers(
