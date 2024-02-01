@@ -5,18 +5,48 @@ import shutil
 import stat
 
 from setuptools import setup
+from setuptools.command.build_py import build_py as build_py_original
 from Cython.Build import cythonize
 
 project_path = Path(__file__).parent
 FILES_TO_CYTHONIZE = [str(i) for i in list(Path("src").glob("pkg_name/**/*.py"))]
 
+# ------------------------------------------------------------------------------------
+# To exclude source files (*.py) into the final *whl file
+# ------------------------------------------------------------------------------------
+class build_py(build_py_original):
+    def build_packages(self):
+        pass 
 
+# ------------------------------------------------------------------------------------
+# Versioning
+# ------------------------------------------------------------------------------------
+"""
+Please use semantic versioning (https://semver.org/)
+MAJOR.MINOR.PATCH-rc.PRERELEASE+build.BUILD
+Increment criteria:
+    MAJOR - when you make incompatible API changes
+    MINOR - when you add functionality in a backwards compatible manner
+    PATCH - when you make backwards compatible bug fixes
+    PRELEASE - release candidates
+    BUILD - (do not use)
+"""
+module_info = {}
+with open(Path("src/pkg_name/__init__.py"), "r") as f:
+    exec(f.read(), module_info)                         # exec() to execute code that comes as strings or compiled code objects
+VERSION = module_info["__version__"]
+
+# ------------------------------------------------------------------------------------
+# Main setup( ) call
+# ------------------------------------------------------------------------------------
 setup(
+    version=VERSION,
     ext_modules=cythonize(
     FILES_TO_CYTHONIZE,
     build_dir="build",
     compiler_directives=dict(always_allow_keywords=True, language_level="3"),
     ),
+    cmdclass={"build_py": build_py},
 )
 
 

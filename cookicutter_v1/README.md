@@ -37,7 +37,7 @@ There are a couple of points in the screen-shot below for what we got from ```pi
 ![pipenv_lock](./pics/pipenvgraph.png)
 
 
-## 2 Build the final sheel finle:
+## 2 Build the final wheel file:
 We will use the dev local-environment we built in section 1 above, using pipfile, to run our Build front end. 
 
 Python job requiring a build should start with the absolute minimum requirements:
@@ -90,6 +90,20 @@ build-backend = "setuptools.build_meta"
 ### 2.4 stubs
 stubs are files containing only type information, empty of runtime code (the filename ends in *.pyi). Historically, "function stub" is an incomplete function and a placeholder for a function that you want to finish the functionality/logic of it later.
 
+
+### 2.4 what is in the final created wheel file
+It is always important to check what we have in our final (to be distributed) wheel file. To check this, simple change .whl extention to .zip, and then open up the folder. Inside the pkg_name folder, you will see what is packaged into the zip file (into the sheel file). If not careful, like the one I showed in the screet-shot below, we might have included all our source file, along with the *.so file. A safe packaging should only include *.so file.
+!["what_is_wheel_file](./pics/what_is_in_wheel_file.png)
+
+To prevent the source files (*.py) into the wheel file, we can add the following command into setu() call, in setup.py.
+
+```
+setup(
+    .
+    .
+    cmdclass={"build_py": build_py},
+)
+```
 
 ## References
 - pythons docs on pyproject.toml https://packaging.python.org/en/latest/guides/writing-pyproject-toml/

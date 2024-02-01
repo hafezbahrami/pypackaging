@@ -48,9 +48,6 @@ Repository = "https://git-hub/XXX"
 [project.scripts]
 spam_cli = "pkg_name.calculate:Calculator"
 
-[tool.setuptools]
-package-data = {"pkg_name_deployment_endpoints" = ["lib/*.dll"]}
-
 [tool.setuptools.packages.find]
 where = ["src"]
 
