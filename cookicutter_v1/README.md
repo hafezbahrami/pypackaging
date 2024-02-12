@@ -90,8 +90,38 @@ build-backend = "setuptools.build_meta"
 ### 2.4 stubs
 stubs are files containing only type information, empty of runtime code (the filename ends in *.pyi). Historically, "function stub" is an incomplete function and a placeholder for a function that you want to finish the functionality/logic of it later.
 
+Look at the "publishstubs.py" in which we try to create a setup.py in plain text (string), and at the end to build a wheel-file for stubs files. This wheel file can be installed in a "developer" machine for method/class hints and also the mypy static check.
 
-### 2.4 what is in the final created wheel file
+In task.py, we created a method so we can invoke it, and build the stubs wheel file.
+
+```
+def generatestubs(context: Context):
+    # Publish a stubs package for development
+    from publishstubs import StubProjectBuilder
+
+    stub_project_builder = StubProjectBuilder(
+        project_name="pkg_name",
+        version="0.0.0rc0",             #os.getenv("CI_COMMIT_TAG", "0.0.0rc0"),
+        package_names=["pkg_name"],
+        project_root=Path.cwd(),
+        package_directory=Path.cwd().joinpath("src"),
+    )
+    stub_whl = stub_project_builder.build_stubs_package()
+    context.run("")
+```
+
+Here is good way to test, in any **developer machine**, in a test.py outside of the current project:
+
+    - 1 First, let's only install the main package wheel file (here pkg_name.whl) into test.py. If now, we install and import the pkg_name, when we typing things out, we do not see any hints,... 
+    
+    - 2 Once we have the stubs *.whl file,  when also install the pkg_name_stubs.whl along side the pkg_name.whl file here. If now we start typing any code now we see all the hints and ....
+    
+    - 3 All the virtual environment should be done by using pipenv. Virtualenv did not work in this case.
+
+!["stubs_package"](./pics/stubs_installed.png)
+
+
+### 2.5 what is in the final created wheel file
 It is always important to check what we have in our final (to be distributed) wheel file. To check this, simple change .whl extention to .zip, and then open up the folder. Inside the pkg_name folder, you will see what is packaged into the zip file (into the sheel file). If not careful, like the one I showed in the screet-shot below, we might have included all our source file, along with the *.so file. A safe packaging should only include *.so file.
 !["what_is_wheel_file](./pics/what_is_in_wheel_file.png)
 

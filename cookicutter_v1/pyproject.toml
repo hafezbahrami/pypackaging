@@ -4,7 +4,7 @@ requires = ["setuptools", "wheel", "Cython", "setuptools-scm",]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cookiecutter_v1"
+name = "pkg_name"
 authors = [
     {name="Hafez B", email="hafezbahrami@XXX.com"},
 ]

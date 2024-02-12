@@ -90,7 +90,7 @@ def generatestubs(context: Context):
     from publishstubs import StubProjectBuilder
 
     stub_project_builder = StubProjectBuilder(
-        project_name="cookiecutter_v1",
+        project_name="pkg_name",
         version="0.0.0rc0",             #os.getenv("CI_COMMIT_TAG", "0.0.0rc0"),
         package_names=["pkg_name"],
         project_root=Path.cwd(),

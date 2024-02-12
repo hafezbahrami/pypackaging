@@ -333,7 +333,7 @@ class StubProjectBuilder:
 
 if __name__ == "__main__":
     c = StubProjectBuilder(
-        project_name="cookiecutter_v1",
+        project_name="pkg_name",
         version="0.0.0rc0",
         package_names=["pkg_name"],
         project_root=Path.cwd(),
